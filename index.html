@@ -22,20 +22,13 @@
             crossorigin="anonymous"></script>
 
     <script>
-        const API_BASE_URL = 'https://sua-api-publica.com/api';
+        const API_BASE_URL = 'https://api-cicluz.vercel.app/api';
 
         async function fetchData() {
             try {
-                const response = await fetch(`${API_BASE_URL}/dados`);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                const response = await fetch(`${API_BASE_URL}/tabelas`);
                 const data = await response.json();
                 console.log(data);
-
-                // Exibir dados na página
-                const container = document.getElementById('data-container');
-                container.innerHTML = JSON.stringify(data, null, 2);
             } catch (error) {
                 console.error('Erro ao buscar dados:', error);
             }
